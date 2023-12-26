@@ -1,14 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// routing
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import SigninPage from "./pages/SigninPage";
+import RootLayout from "./components/Root";
+import ProfilePage from "./pages/ProfilePage";
+import CreateUserPage from "./pages/CreateUserPage";
+import UsersPage from "./pages/UsersPage";
+import ScannerPage from "./pages/ScannerPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <SigninPage />,
+      },
+      {
+        path: "/profile/:id",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/create-user",
+        element: <CreateUserPage />,
+      },
+      {
+        path: "/users",
+        element: <UsersPage />,
+      },
+      {
+        path: "/scanner",
+        element: <ScannerPage />,
+      },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <RouterProvider router={router}>
     <App />
-  </React.StrictMode>
+  </RouterProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
