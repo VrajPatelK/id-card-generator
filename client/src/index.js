@@ -12,7 +12,6 @@ import RootLayout from "./components/Root";
 import ProfilePage from "./pages/ProfilePage";
 import CreateUserPage from "./pages/CreateUserPage";
 import UsersPage from "./pages/UsersPage";
-import ScannerPage from "./pages/ScannerPage";
 
 const router = createBrowserRouter([
   {
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
       {
         path: "/users",
         element: <UsersPage />,
-      },
-      {
-        path: "/scanner",
-        element: <ScannerPage />,
       },
     ],
   },
